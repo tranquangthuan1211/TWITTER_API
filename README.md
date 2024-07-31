@@ -16,7 +16,7 @@ requirements:
 
 Use these command to install this project.
 ```bash
-git clone https://github.com/minghoan/Twitter-API
+git clone https://github.com/tranquangthuan1211/TWITTER_API
 ```
 ```bash
 cd Twitter-API
