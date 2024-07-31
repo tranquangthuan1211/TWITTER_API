@@ -1,0 +1,166 @@
+tags:
+  - name: tweet
+    description: Tweet operations
+paths:
+  /api/tweet:
+    get:
+      summary: Get all tweets
+      description: Get all tweets
+      operationId: getTweets
+      tags:
+        - tweet
+      parameters:
+        - name: page
+          in: query
+          description: Page number
+          required: false
+          schema:
+            type: number
+        - name: limit
+          in: query
+          description: Limit number of tweets
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Get all tweets
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  http:
+                    type: number
+                  message:
+                    type: string
+                  data:
+                    type: object
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        message:
+                          type: string
+    post:
+      summary: Create a tweet
+      description: Create a tweet
+      operationId: createTweet
+      tags:
+        - tweet
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                imageUri:
+                  type: array
+                  items:
+                    type: string
+                tweetType:
+                  type: number
+                parentId:
+                  type: string
+      responses:
+        '200':
+          description: Create a tweet
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  http:
+                    type: number
+                  message:
+                    type: string
+                  data:
+                    type: object
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        message:
+                          type: string
+  /api/tweet/{tweetId}:
+    get:
+      summary: Get a detail tweet
+      description: Get a detail tweet
+      operationId: getDetailtweet
+      tags:
+        - tweet
+      parameters:
+        - name: tweetId
+          in: path
+          required: true
+          description: tweetId
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Get a tweet
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  http:
+                    type: number
+                  message:
+                    type: string
+                  data:
+                    type: object
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        message:
+                          type: string
+  /api/tweet/user/{userId}:
+    get:
+      summary: Get all tweets by user
+      description: Get all tweets by user
+      operationId: getTweetsByUser
+      tags:
+        - tweet
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: userId
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Get all tweets by user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  http:
+                    type: number
+                  message:
+                    type: string
+                  data:
+                    type: object
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        message:
+                          type: string

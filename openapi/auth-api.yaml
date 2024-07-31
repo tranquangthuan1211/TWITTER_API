@@ -1,0 +1,79 @@
+tags:
+  - name: auth
+    description: Auth operations
+paths:
+  /api/auth/login:
+    post:
+      summary: Login to the application
+      description: Login to the application
+      operationId: login
+      tags:
+        - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  refreshToken:
+                    type: string
+                  accessToken:
+                    type: string
+  /api/auth/register:
+    post:
+      summary: Register to the application
+      description: Register to the application
+      operationId: register
+      tags:
+        - auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+                userName:
+                  type: string
+      responses:
+        '200':
+          description: Register successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+  /api/auth/logout:
+    post:
+      summary: Logout from the application
+      description: Logout from the application
+      operationId: logout
+      tags:
+        - auth
+      responses:
+        '200':
+          description: Logout successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string

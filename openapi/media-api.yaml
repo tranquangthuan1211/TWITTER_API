@@ -1,0 +1,43 @@
+tags:
+  - name: media
+    description: Media operations
+paths:
+  /api/media/image:
+    post:
+      summary: Upload an image
+      description: Upload an image
+      operationId: uploadImage
+      tags:
+        - media
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Upload an image
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  http:
+                    type: number
+                  message:
+                    type: string
+                  data:
+                    type: object
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        message:
+                          type: string

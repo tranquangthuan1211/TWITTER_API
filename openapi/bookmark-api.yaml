@@ -1,0 +1,77 @@
+tags:
+  - name: bookmark
+    description: Bookmark operations
+paths:
+  /api/bookmark/tweet/{tweetId}:
+    post:
+      summary: Bookmark a post
+      description: Bookmark a post
+      operationId: Bookmark post
+      tags:
+        - bookmark
+      parameters:
+        - name: tweetId
+          in: path
+          required: true
+          description: tweetId
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Bookmark post
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  http:
+                    type: number
+                  message:
+                    type: string
+                  data:
+                    type: object
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        message:
+                          type: string
+    delete:
+      summary: Unbookmark a post
+      description: Unbookmark a post
+      operationId: unbookmarkPost
+      tags:
+        - bookmark
+      parameters:
+        - name: tweetId
+          in: path
+          required: true
+          description: tweetId
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Unbookmark a post
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  http:
+                    type: number
+                  message:
+                    type: string
+                  data:
+                    type: object
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        message:
+                          type: string

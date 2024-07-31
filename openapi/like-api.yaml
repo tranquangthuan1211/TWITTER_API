@@ -1,0 +1,77 @@
+tags:
+  - name: like
+    description: Like operations
+paths:
+  /api/like/tweet/{tweetId}:
+    post:
+      summary: Like a post
+      description: Like a post
+      operationId: Like post
+      tags:
+        - like
+      parameters:
+        - name: tweetId
+          in: path
+          required: true
+          description: tweetId
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Like post
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  http:
+                    type: number
+                  message:
+                    type: string
+                  data:
+                    type: object
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        message:
+                          type: string
+    delete:
+      summary: Unlike a post
+      description: Unlike a post
+      operationId: unlikePost
+      tags:
+        - like
+      parameters:
+        - name: tweetId
+          in: path
+          required: true
+          description: tweetId
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Unlike a post
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  http:
+                    type: number
+                  message:
+                    type: string
+                  data:
+                    type: object
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        message:
+                          type: string
