@@ -13,6 +13,7 @@ requirements:
 * You have installed [Docker](https://www.docker.com/products/docker-desktop/).
 * You have installed [Git](https://git-scm.com/downloads).
 * Clone project
+* add url mongoDB in file evn
 
 Use these command to install this project.
 ```bash
